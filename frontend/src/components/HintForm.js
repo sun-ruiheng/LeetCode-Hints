@@ -18,8 +18,7 @@ const HintForm = () => {
             method: 'POST',
             body: JSON.stringify(hint),
             headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
+                'Content-Type': 'application/json'
             }
         });
         const json = await resp.json();
