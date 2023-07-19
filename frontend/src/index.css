@@ -39,6 +39,10 @@ header a {
   background: #fff;
 }
 
+.hints {
+  padding-left: 50px;
+}
+
 /* search */
 .filter-area {
   display: flex;
@@ -62,10 +66,11 @@ header a {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .query-part input {
-  margin: auto;
+  margin: auto 5px;
 }
 
 .query-part button {
@@ -86,7 +91,7 @@ header a {
   background: #fff;
   border-radius: 4px;
   margin: 20px auto;
-  padding: 20px;
+  padding: 40px;
   position: relative;
   box-shadow: 2px 2px 5px rgba(152, 152, 152, 0.05);
   transition: 0.25s linear;
@@ -96,7 +101,7 @@ header a {
 }
 .hint-details h4 {
   margin: 0 0 10px 0;
-  font-size: 1.2em;
+  font-size: 1.4em;
   color: var(--dablue);
   padding-right: 140px;
 }
@@ -117,6 +122,12 @@ header a {
 }
 
 /* hint form */
+form.create {
+  padding-right: 50px;
+}
+form h3 {
+  color: #1aac83;
+}
 label, input {
   display: block;
 }

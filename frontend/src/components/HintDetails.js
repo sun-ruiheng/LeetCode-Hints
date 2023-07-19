@@ -7,9 +7,9 @@ const HintDetails = ({ hint }) => {
 
     return (
         <motion.div className={"hint-details" + (expanded ? " expanded": '')}
-            initial={{ visibility: 0, y: 50 }}
-            whileInView={{ visibility: 1, y: 0 }}
-            transition={{ duration: 0.7, type: "spring", bounce: 0.5 }}
+            initial={{ visibility: 0, x: -80 }}
+            whileInView={{ visibility: 1, x: 0 }}
+            transition={{ duration: 0.02, type: "tween" }}
             onTap={() => setExpanded(!expanded)}
         >
             <h4>{hint.title}</h4>
