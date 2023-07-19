@@ -9,7 +9,7 @@ const Home = () => {
     const [hints, setHints] = useState(null);
     
     const fetchHints = async () => {
-        const resp = await fetch('/api/hints');
+        const resp = await fetch('https://leetcode-hints-backend.onrender.com/api/hints');
         const json = await resp.json();
         if (resp.ok) {
             setHints(json);

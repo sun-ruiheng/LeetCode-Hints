@@ -7,7 +7,7 @@ const Search = ({setHints}) => {
     const handleSubmit = async e => {
         e.preventDefault();
 
-        const resp = await fetch('/api/hints/query/' + query);
+        const resp = await fetch('https://leetcode-hints-backend.onrender.com/api/hints/query/' + query);
         const json = await resp.json();
 
         if (!resp.ok) {

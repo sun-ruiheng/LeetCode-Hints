@@ -40,7 +40,6 @@ const getHint = async (req, res) => {
 // create a new hint
 const createHint = async (req, res) => {
     const {question, title, body, name} = req.body;
-    console.log(name);
 
     // add to DB
     try {
