@@ -1,5 +1,5 @@
 {
-  "proxy": "https://leetcode-hints-backend.onrender.com/",
+  "proxy": "https://leetcode-hints-backend.onrender.com",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
