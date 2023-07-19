@@ -15,7 +15,7 @@ app.use((req, res, next) => {
 });
 
 // routes
-app.use('https://leetcode-hints-backend.onrender.com/api/hints', hintRoutes);
+app.use('/api/hints', hintRoutes);
 
 // connect to DB, then begin listening
 mongoose.connect(process.env.MONGO_URI)
