@@ -7,12 +7,14 @@ import Search from '../components/Search';
 const Home = () => {
 
     const [hints, setHints] = useState(null);
+    const [offline, setOffline] = useState(true);
     
     const fetchHints = async () => {
         const resp = await fetch('https://leetcode-hints-backend.onrender.com/api/hints');
         const json = await resp.json();
         if (resp.ok) {
             setHints(json);
+            setOffline(false);
         }
     };
 
@@ -25,6 +27,7 @@ const Home = () => {
             
             <div className='hints'>
                 <Search setHints={setHints} />
+                {offline && <p>Sorry, the backend hosting service goes offline after a while of inactivity. Give it a minute and retry!</p>}
                 {hints && hints.map(hint => (
                     <HintDetails key={hint._id} hint={hint}/>
                 ))}
