@@ -24,7 +24,7 @@ const Search = ({setHints}) => {
     const handleReset = async e => {
         e.preventDefault();
 
-        const resp = await fetch('/api/hints/');
+        const resp = await fetch('https://leetcode-hints-backend.onrender.com/api/hints/');
         const json = await resp.json();
 
         if (!resp.ok) {
@@ -55,7 +55,7 @@ const Search = ({setHints}) => {
                 {error && <div className="error">{error}</div>}
             </form>
 
-            <button onClick={handleReset} class="reset-filter">Reset filter</button>
+            <button onClick={handleReset} className="reset-filter">Reset filter</button>
         </div>
         
     )

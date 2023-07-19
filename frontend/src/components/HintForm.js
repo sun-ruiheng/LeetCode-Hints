@@ -14,7 +14,7 @@ const HintForm = () => {
 
         const hint = {question, title, body, name};
 
-        const resp = await fetch('/api/hints', {
+        const resp = await fetch('https://leetcode-hints-backend.onrender.com/api/hints/', {
             method: 'POST',
             body: JSON.stringify(hint),
             headers: {
