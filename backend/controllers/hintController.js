@@ -3,15 +3,25 @@ const mongoose = require('mongoose');
 
 // get all hints
 const getHints = async (req, res) => {
-    const hints = await Hint.find({}).sort({ createdAt: -1 });
+    const page = req.query.p || 1;
+    const hintsPerPage = 5;
+    const hints = await Hint.find({})
+                            .sort({ createdAt: -1 })
+                            .skip((page-1) * hintsPerPage)
+                            .limit(hintsPerPage);
     res.status(200).json(hints);
 }
 
 // get hints by filtering question
 const getHintsFiltered = async (req, res) => {
     const { qn } = req.params;
+    const page = req.query.p || 1;
+    const hintsPerPage = 5;
 
-    const hints = await Hint.find({ question: qn }).sort({ createdAt: -1 });
+    const hints = await Hint.find({ question: qn })
+                            .sort({ createdAt: -1 })
+                            .skip((page-1) * hintsPerPage)
+                            .limit(hintsPerPage);
 
     if (!hints) {
         return res.json({oops: "No hints for that question yet!"});

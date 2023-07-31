@@ -8,14 +8,16 @@ const Home = () => {
 
     const [hints, setHints] = useState(null);
     const [offline, setOffline] = useState(true);
+    const [page, setPage] = useState(1);
     
     const fetchHints = async () => {
-        const resp = await fetch('https://leetcode-hints-backend.onrender.com/api/hints');
+        const resp = await fetch('https://leetcode-hints-backend.onrender.com/api/hints'
+                        + "?p=" + page);
         const json = await resp.json();
         if (resp.ok) {
             setHints(json);
-            setOffline(false);
         }
+        setOffline(false);
     };
 
     useEffect(() => {
