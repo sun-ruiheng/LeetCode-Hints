@@ -1,41 +1,11 @@
-import { useState } from "react"
+import { useEffect } from "react";
 
-const Search = ({setHints}) => {
-    const [query, setQuery] = useState("");
-    const [error, setError] = useState(null);
+const Search = ({ setFiltering, query, setQuery, resetPages }) => {
 
     const handleSubmit = async e => {
         e.preventDefault();
-
-        const resp = await fetch('https://leetcode-hints-backend.onrender.com/api/hints/query/' + query);
-        const json = await resp.json();
-
-        if (!resp.ok) {
-            setError(json.error);
-            console.log("There was some error with response when searching up this question.");
-        } else {
-            setQuery('');
-            setError(null);
-            setHints(json);
-            console.log("Query results returned successfully.");
-        }
-    }
-
-    const handleReset = async e => {
-        e.preventDefault();
-
-        const resp = await fetch('https://leetcode-hints-backend.onrender.com/api/hints/');
-        const json = await resp.json();
-
-        if (!resp.ok) {
-            setError(json.error);
-            console.log("There was some error with response when resetting results.");
-        } else {
-            setQuery('');
-            setError(null);
-            setHints(json);
-            console.log("Reset the filter successfully.");
-        }
+        resetPages();
+        setFiltering(true);
     }
 
     return (
@@ -51,11 +21,11 @@ const Search = ({setHints}) => {
                     />
                     <button>Filter</button>
                 </div>
-                
-                {error && <div className="error">{error}</div>}
             </form>
 
-            <button onClick={handleReset} className="reset-filter">Reset filter</button>
+            <button onClick={() => {
+                setFiltering(false);
+            }} className="reset-filter">Reset filter</button>
         </div>
         
     )

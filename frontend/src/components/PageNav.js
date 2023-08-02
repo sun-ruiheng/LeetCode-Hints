@@ -1,12 +1,10 @@
 
-const PageNav = ({ hints, page, setPage }) => {
-    let lastPage = Math.ceil(hints.length / 5); //change 5 if hintsPerPage changes
-    
+const PageNav = ({ hasNext, page, setPage }) => {
     return (
         <div className='pagenav'>
-            <button style={page == 1 && 'visibility: hidden'} onClick={() => setPage(page - 1)}>Back</button>
+            <button style={page === 1 ? {visibility: 'hidden'} : {visibility: 'visible'}} onClick={() => setPage(page - 1)}>Back</button>
             <span>{page}</span>
-            <button style={page == lastPage && 'visibility: hidden'} onClick={() => setPage(page + 1)}>Next</button>
+            <button style={hasNext ? {visibility: 'visible'} : {visibility: 'hidden'}} onClick={() => setPage(page + 1)}>Next</button>
         </div>
     )
 }

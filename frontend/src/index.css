@@ -121,10 +121,23 @@ header a {
   color: #333;
 }
 
+/* nav */
+.pagenav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagenav button {
+  margin: 10px;
+}
+
 /* hint form */
 form.create {
   padding-right: 50px;
 }
+
 form h3 {
   color: #1aac83;
 }
