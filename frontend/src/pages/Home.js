@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import HintDetails from '../components/HintDetails';
 import HintForm from '../components/HintForm';
 import Search from '../components/Search';
+import PageNav from '../components/PageNav';
 
 const Home = () => {
 
@@ -22,7 +23,7 @@ const Home = () => {
 
     useEffect(() => {
         fetchHints();
-    }, []);
+    }, [page]);
     
     return (
         <div className="home">
@@ -33,6 +34,7 @@ const Home = () => {
                 {hints && hints.map(hint => (
                     <HintDetails key={hint._id} hint={hint}/>
                 ))}
+                <PageNav page={page} setPage={setPage}/>
             </div>
             <HintForm />
         </div>
